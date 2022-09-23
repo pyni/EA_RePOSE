@@ -52,4 +52,19 @@ The dataset parts are from the Downloads part in RePOSE(https://github.com/sh8/R
     $ cd $ROOT/cache/LinemodTest
     $ unzip ape.zip benchvise.zip .... phone.zip
  
+## Testing w/o DQN
+
+### Evaluate the ADD(-S) score
+
+1. Generate the annotation data:
     ```
+    python run.py --type linemod cls_type ape model ape
+    ```
+2. Test:
+    ```
+    # Test on the LineMOD dataset
+    $ python run.py --type evaluate --cfg_file configs/linemod.yaml cls_type ape model ape
+ 
+    ```
+
+
