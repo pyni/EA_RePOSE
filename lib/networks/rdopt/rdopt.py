@@ -161,7 +161,7 @@ class RDOPT(nn.Module):
     def process_siamese(self, data_i, featuresrequired=False):
 
 
-            pred_1, pred_2, pred_3, pred_4 , features = self.UNet_(data_i)
+            pred_1, pred_2, pred_3, pred_4 , features = trt_model(data_i)
             
             pred_i = {'feature_maps': [pred_1,pred_2]}
             pred_i['confidences'] = [pred_3,pred_4]
