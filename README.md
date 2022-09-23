@@ -62,8 +62,11 @@ The dataset parts are from the Downloads part in RePOSE(https://github.com/sh8/R
     ```
 2. Test(The method of initial poses can be modified in configs/linemod.yaml):
     ```
-    # Test on the LineMOD dataset
-    $ python run.py --type evaluate --cfg_file configs/linemod.yaml cls_type ape model ape
+    # Test on the LineMOD dataset with results of PVNET
+    $ python run.py --type evaluate --cfg_file configs/linemod.yaml cls_type ape model ape mode PVNET
+    
+    # Test on the LineMOD dataset with results of PoseCNN
+    $ python run.py --type evaluate --cfg_file configs/linemod.yaml cls_type ape model ape mode PoseCNN
  
     ```
     
