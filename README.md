@@ -71,7 +71,7 @@ The dataset parts are from the Downloads part in RePOSE(https://github.com/sh8/R
     ```
 ### TensorRT version:
 
-Please convert weight file('.pth') into tensorRT file('.trt') according to [TensorRT](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/index.html).
+Please convert weight file('.pth') into tensorRT file according to [TensorRT](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/index.html).
 
 Then change branch into main_tensorrt:
  ```
