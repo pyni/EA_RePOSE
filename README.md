@@ -69,7 +69,17 @@ The dataset parts are from the Downloads part in RePOSE(https://github.com/sh8/R
     $ python run.py --type evaluate --cfg_file configs/linemod.yaml cls_type ape model ape mode PoseCNN
  
     ```
-    
+### TensorRT version:
+
+Please convert weight file('.pth') into tensorRT file('.trt') according to [TensorRT](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/index.html).
+
+Then change branch into main_tensorrt:
+ ```
+ git checkout main_tensorrt
+ ```
+Then run the above orders again.
+
+
     
 ## Acknowledgement
 Our code is largely based on [Repose](https://github.com/sh8/RePOSE.git). 
