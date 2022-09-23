@@ -55,6 +55,21 @@ face_num=face_num_dict[cfg.cls_type]
 savednumpy=[]
 savedindex=[]
 
+import tensorrt as trt
+
+logger = trt.Logger(trt.Logger.INFO)
+from torch2trt import TRTModule
+
+device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+print(device)
+
+f = open('./bestresult/'+cfg.cls_type+'/'+cfg.cls_type+'.trt', "rb")
+runtime = trt.Runtime(logger)
+engine = runtime.deserialize_cuda_engine(f.read())  
+trt_model = TRTModule(engine, input_names=['input'], output_names=['output1', 'output2', 'output3', 'output4', 'output5'])
+
+
+
 class RDOPT(nn.Module):
     def __init__(self):
         super(RDOPT, self).__init__()
@@ -146,7 +161,10 @@ class RDOPT(nn.Module):
     def process_siamese(self, data_i, featuresrequired=False):
 
 
-            pred_i, features = self.UNet_(data_i)
+            pred_1, pred_2, pred_3, pred_4 , features = self.UNet_(data_i)
+            
+            pred_i = {'feature_maps': [pred_1,pred_2]}
+            pred_i['confidences'] = [pred_3,pred_4]
 
             if featuresrequired:
                 return pred_i, features
