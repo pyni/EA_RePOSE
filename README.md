@@ -52,7 +52,7 @@ The dataset parts are from the Downloads part in RePOSE(https://github.com/sh8/R
     $ cd $ROOT/cache/LinemodTest
     $ unzip ape.zip benchvise.zip .... phone.zip
  
-## Testing w/o DQN
+## Testing 
 
 ### Evaluate the ADD(-S) score
 
