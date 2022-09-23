@@ -66,5 +66,6 @@ The dataset parts are from the Downloads part in RePOSE(https://github.com/sh8/R
     $ python run.py --type evaluate --cfg_file configs/linemod.yaml cls_type ape model ape
  
     ```
-
+## Acknowledgement
+Our code is largely based on [Repose](https://github.com/sh8/RePOSE.git). 
 
