@@ -58,15 +58,14 @@ def run_evaluate():
                 bbox = batch['bbox'].cuda()
 
 
-                if    int(batch['img_id'][0])  :
+        
 
-                    _,output ,elapsed_time= network(inp, K, x_ini, bbox  )
+                _,output ,elapsed_time= network(inp, K, x_ini, bbox  )
 
-                    tot_elapsed_time += elapsed_time
-                    tot_valid_cnt += 1
-                    outputs.append(output)
-                else:
-                    outputs.append([])
+                tot_elapsed_time += elapsed_time
+                tot_valid_cnt += 1
+                outputs.append(output)
+
 
     print('Start computing ADD(-S) metrics...')
     for i, batch in enumerate(tqdm.tqdm(data_loader)):
