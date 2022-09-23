@@ -82,5 +82,5 @@ Then run the above orders again.
 
     
 ## Acknowledgement
-Our code is largely based on [Repose](https://github.com/sh8/RePOSE.git).  Thanks to Repose.
+Our code is largely based on [Repose](https://github.com/sh8/RePOSE.git) and [PVNET](https://github.com/zju3dv/pvnet.git).  Thanks for their sharing.
 
