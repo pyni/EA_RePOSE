@@ -12,7 +12,15 @@ EA-Repose: Efficient and Accurate Feature-metric-based 6D Object Pose Refinement
 
 ## Downloads
 The dataset parts are from the Downloads part in RePOSE(https://github.com/sh8/RePOSE.git)
-Our training result can be downloaded from [this part](https://drive.google.com/drive/folders/1gVRkrTW8oyjWFri4_5ZlneEyO_ejti8X?usp=sharing)
+
+Our training results can be downloaded from [this part](https://drive.google.com/drive/folders/1gVRkrTW8oyjWFri4_5ZlneEyO_ejti8X?usp=sharing)
+    ```
+    $ ROOT=/path/to/EA_RePOSE
+    $ mkdir  $ROOT/bestresult
+    ```
+Then copy the training weights into it
+
+
 ## Installation
 
 1. Set up the python environment:
