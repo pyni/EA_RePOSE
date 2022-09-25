@@ -55,10 +55,7 @@ Then copy the training weights in it
 
     $ ln -s /path/to/linemod linemod
     $ ln -s /path/to/linemod_orig linemod_orig
-
-    $ cd $ROOT/data/model/
-    $ unzip pretrained_models.zip
-
+ 
     $ cd $ROOT/cache/LinemodTest
     $ unzip ape.zip benchvise.zip .... phone.zip
  
