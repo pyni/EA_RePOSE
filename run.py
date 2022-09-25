@@ -30,8 +30,8 @@ def run_evaluate():
 
     network = make_network(cfg).cuda()
 
-    pretrained_model = torch.load('./bestresult/'+cfg.cls_type+'/'+cfg.cls_type+'.pth')
-    network.load_state_dict(pretrained_model['net'], strict=False)
+    pretrained_model = torch.load('./bestresult/'+cfg.cls_type+'.pth')
+    network.load_state_dict(pretrained_model, strict=False)
 
 
 
