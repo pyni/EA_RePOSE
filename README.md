@@ -13,7 +13,9 @@ EA-Repose: Efficient and Accurate Feature-metric-based 6D Object Pose Refinement
 ## Downloads
 The dataset parts are from the Downloads part in RePOSE(https://github.com/sh8/RePOSE.git)
 
-Our training results can be downloaded from [this part](https://drive.google.com/drive/folders/1gVRkrTW8oyjWFri4_5ZlneEyO_ejti8X?usp=sharing)
+Our training results w/o dqn can be downloaded from [this part](https://drive.google.com/drive/folders/1gVRkrTW8oyjWFri4_5ZlneEyO_ejti8X?usp=sharing)
+dqn results can be downloaded from [this part](https://drive.google.com/drive/folders/1gdcLg-kuycxDlAUlaeo89bKEPZ-NkXX1?usp=sharing)
+
 
     ```
     $ ROOT=/path/to/EA_RePOSE
