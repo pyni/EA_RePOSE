@@ -114,7 +114,13 @@ Then run the above orders again.
     $ python run.py --type dqn --cfg_file configs/linemod.yaml cls_type ape model ape mode PoseCNN
  
     ``` 
-    
+3. TensorRT version:
+
+Then change branch into main_dqn_tensorrt:
+ ```
+ git checkout main_dqn_tensorrt
+ ```
+Then run the above orders again.
 
 
 
