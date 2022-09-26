@@ -90,18 +90,18 @@ Then run the above orders again.
 ## Testing with DQN
 
 ### Evaluate the ADD(-S) score
-
-1. Generate the annotation data:
-    ```
-    python run.py --type linemod cls_type ape model ape
-    ```
+1. Change branch into main_dqn:
+ ```
+ git checkout main_dqn
+ ```
+ 
 2. Test (The method of initial poses can be modified in configs/linemod.yaml):
     ```
     # Test on the LineMOD dataset with results of PVNET
-    $ python run.py --type evaluate --cfg_file configs/linemod.yaml cls_type ape model ape mode PVNET
+    $ python run.py --type dqn --cfg_file configs/linemod.yaml cls_type ape model ape mode PVNET
     
     # Test on the LineMOD dataset with results of PoseCNN
-    $ python run.py --type evaluate --cfg_file configs/linemod.yaml cls_type ape model ape mode PoseCNN
+    $ python run.py --type dqn --cfg_file configs/linemod.yaml cls_type ape model ape mode PoseCNN
  
     ``` 
     
