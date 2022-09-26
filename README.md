@@ -15,19 +15,18 @@ The dataset parts are from the Downloads part in RePOSE(https://github.com/sh8/R
 
 Our training results w/o dqn can be downloaded from [this part](https://drive.google.com/drive/folders/1gVRkrTW8oyjWFri4_5ZlneEyO_ejti8X?usp=sharing)
 
-    ```
+ 
     $ ROOT=/path/to/EA_RePOSE
     $ mkdir  $ROOT/bestresult
-    ```
+ 
     
 Then copy the training weights in it
 
 Dqn results can be downloaded from [this part](https://drive.google.com/drive/folders/1gdcLg-kuycxDlAUlaeo89bKEPZ-NkXX1?usp=sharing)
 
-    ```
+ 
     $ ROOT=/path/to/EA_RePOSE
-    $ mkdir  $ROOT/bestresult_dqn
-    ```
+ 
     
 Then copy the training weights in it
 
