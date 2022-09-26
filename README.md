@@ -59,7 +59,7 @@ Then copy the training weights in it
     $ cd $ROOT/cache/LinemodTest
     $ unzip ape.zip benchvise.zip .... phone.zip
  
-## Testing 
+## Testing w/o DQN
 
 ### Evaluate the ADD(-S) score
 
@@ -67,7 +67,7 @@ Then copy the training weights in it
     ```
     python run.py --type linemod cls_type ape model ape
     ```
-2. Test(The method of initial poses can be modified in configs/linemod.yaml):
+2. Test (The method of initial poses can be modified in configs/linemod.yaml):
     ```
     # Test on the LineMOD dataset with results of PVNET
     $ python run.py --type evaluate --cfg_file configs/linemod.yaml cls_type ape model ape mode PVNET
@@ -75,8 +75,8 @@ Then copy the training weights in it
     # Test on the LineMOD dataset with results of PoseCNN
     $ python run.py --type evaluate --cfg_file configs/linemod.yaml cls_type ape model ape mode PoseCNN
  
-    ```
-### TensorRT version:
+    ``` 
+3. TensorRT version:
 
 Please convert weight file('.pth') into tensorRT file according to [TensorRT](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/index.html).
 
@@ -85,6 +85,27 @@ Then change branch into main_tensorrt:
  git checkout main_tensorrt
  ```
 Then run the above orders again.
+
+
+## Testing with DQN
+
+### Evaluate the ADD(-S) score
+
+1. Generate the annotation data:
+    ```
+    python run.py --type linemod cls_type ape model ape
+    ```
+2. Test (The method of initial poses can be modified in configs/linemod.yaml):
+    ```
+    # Test on the LineMOD dataset with results of PVNET
+    $ python run.py --type evaluate --cfg_file configs/linemod.yaml cls_type ape model ape mode PVNET
+    
+    # Test on the LineMOD dataset with results of PoseCNN
+    $ python run.py --type evaluate --cfg_file configs/linemod.yaml cls_type ape model ape mode PoseCNN
+ 
+    ``` 
+    
+
 
 
     
