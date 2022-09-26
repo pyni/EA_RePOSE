@@ -44,11 +44,19 @@ rd.seed(5215)
 viridis = cm.get_cmap('viridis', 256)
 
 GPU_COUNT = torch.cuda.device_count()
+VER_NUM_dict ={'ape':5841,'cam':4750,'benchvise':4790,'can':2852,'driller':3165,'cat':15736,'eggbox':4619,'duck':7912,'iron':2277,'holepuncher':27305,'glue': 3740,'iron': 2277 ,'phone': 2071 ,'lamp': 3156  }
+scalefactor_dict={'ape':0.15,'cam':0.08,'benchvise':0.08,'can':0.08,'driller':0.08,'cat':0.08 ,'eggbox': 0.08,'duck':0.08 ,'iron':0.08,'holepuncher':0.08,'glue': 0.08 ,'iron': 0.08  ,'phone': 0.08 ,'lamp': 0.08}
+initialbias_dict={'ape':12,'cam':21,'benchvise':23,'can':22,'driller':23,'cat':20,'eggbox':19,'duck':19,'iron':22,'holepuncher':21,'glue':22,'iron': 22,'phone': 23,'lamp': 23}
+face_num_dict={'ape':11678,'cam':9496,'benchvise':9580,'can':5708,'driller':6326,'cat':31468,'eggbox':9234,'duck':15820,'iron':4554,'holepuncher':467541,'glue':7476,'iron': 4554,'phone':4138,'lamp': 6124}
+
+
 MAX_NUM_OF_GN = 5
 IN_CHANNELS = 3
 OUT_CHANNELS = 6
-VER_NUM = 5841  # 35034#
-scalefactor = 0.15 # 0.15#这个应该由感受野最大响应范围决定 默认0.17
+VER_NUM = VER_NUM_dict[cfg.cls_type]
+scalefactor =scalefactor_dict[cfg.cls_type]
+initialbias=initialbias_dict[cfg.cls_type]
+face_num=face_num_dict[cfg.cls_type]
 savednumpy=[]
 savedindex=[]
 
@@ -171,10 +179,10 @@ class RDOPT(nn.Module):
 
     def refineonce(self,i,j,x,scalefactor,vertices,faces,textures,K,fx,fy,cx,cy,pred_ori,oribbox,reffeaturesori,bs,staterequired=False):
 
-        scaled_value = int(-x[:, 3:][0][2] / scalefactor) + 12
+        scaled_value = int(-x[:, 3:][0][2] / scalefactor) + initialbias
         NEWSHAPE = 16 * scaled_value  
 
-        scaled_valueorisize = -x[:, 3:][0][2] / scalefactor + 12
+        scaled_valueorisize = -x[:, 3:][0][2] / scalefactor + initialbias
         NEWSHAPEorisize = 16 * scaled_valueorisize 
  
 
@@ -230,7 +238,7 @@ class RDOPT(nn.Module):
  
             f_rend, r_mask, R_mat, face_index_map, depth_map = \
                 self.rend_featureori(vertices.expand(K.shape[0], VER_NUM, 3),
-                                     faces.expand(K.shape[0], 11678, 3),
+                                     faces.expand(K.shape[0], face_num, 3),
                                      textures.expand(K.shape[0], VER_NUM, 3),
                                      K, x[:, :3], x[:, 3:], oribbox)  
  
