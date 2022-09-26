@@ -13,6 +13,26 @@ EA-Repose: Efficient and Accurate Feature-metric-based 6D Object Pose Refinement
 ## Downloads
 The dataset parts are from the Downloads part in RePOSE(https://github.com/sh8/RePOSE.git)
 
+Our training results w/o dqn can be downloaded from [this part](https://drive.google.com/drive/folders/1gVRkrTW8oyjWFri4_5ZlneEyO_ejti8X?usp=sharing)
+
+    ```
+    $ ROOT=/path/to/EA_RePOSE
+    $ mkdir  $ROOT/bestresult
+    ```
+    
+Then copy the training weights in it
+
+Dqn results can be downloaded from [this part](https://drive.google.com/drive/folders/1gdcLg-kuycxDlAUlaeo89bKEPZ-NkXX1?usp=sharing)
+
+    ```
+    $ ROOT=/path/to/EA_RePOSE
+    $ mkdir  $ROOT/bestresult_dqn
+    ```
+    
+Then copy the training weights in it
+
+
+
 ## Installation
 
 1. Set up the python environment:
@@ -45,14 +65,11 @@ The dataset parts are from the Downloads part in RePOSE(https://github.com/sh8/R
 
     $ ln -s /path/to/linemod linemod
     $ ln -s /path/to/linemod_orig linemod_orig
-
-    $ cd $ROOT/data/model/
-    $ unzip pretrained_models.zip
-
+ 
     $ cd $ROOT/cache/LinemodTest
     $ unzip ape.zip benchvise.zip .... phone.zip
  
-## Testing 
+## Testing w/o DQN
 
 ### Evaluate the ADD(-S) score
 
@@ -60,7 +77,7 @@ The dataset parts are from the Downloads part in RePOSE(https://github.com/sh8/R
     ```
     python run.py --type linemod cls_type ape model ape
     ```
-2. Test(The method of initial poses can be modified in configs/linemod.yaml):
+2. Test (The method of initial poses can be modified in configs/linemod.yaml):
     ```
     # Test on the LineMOD dataset with results of PVNET
     $ python run.py --type evaluate --cfg_file configs/linemod.yaml cls_type ape model ape mode PVNET
@@ -68,9 +85,46 @@ The dataset parts are from the Downloads part in RePOSE(https://github.com/sh8/R
     # Test on the LineMOD dataset with results of PoseCNN
     $ python run.py --type evaluate --cfg_file configs/linemod.yaml cls_type ape model ape mode PoseCNN
  
+    ``` 
+3. TensorRT version:
+
+Please convert weight file('.pth') into tensorRT file according to [TensorRT](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/index.html).
+
+Then change branch into main_tensorrt:
+ ```
+ git checkout main_tensorrt
+ ```
+Then run the above orders again.
+
+
+## Testing with DQN
+
+### Evaluate the ADD(-S) score
+1. Change branch into main_dqn:
+ ```
+ git checkout main_dqn
+ ```
+ 
+2. Test (The method of initial poses can be modified in configs/linemod.yaml):
     ```
+    # Test on the LineMOD dataset with results of PVNET
+    $ python run.py --type dqn --cfg_file configs/linemod.yaml cls_type ape model ape mode PVNET
     
+    # Test on the LineMOD dataset with results of PoseCNN
+    $ python run.py --type dqn --cfg_file configs/linemod.yaml cls_type ape model ape mode PoseCNN
+ 
+    ``` 
+3. TensorRT version:
+
+Then change branch into main_dqn_tensorrt:
+ ```
+ git checkout main_dqn_tensorrt
+ ```
+Then run the above orders again.
+
+
+
     
 ## Acknowledgement
-Our code is largely based on [Repose](https://github.com/sh8/RePOSE.git). 
+Our code is largely based on [Repose](https://github.com/sh8/RePOSE.git) and [PVNET](https://github.com/zju3dv/pvnet.git).  Thanks for their sharing.
 
