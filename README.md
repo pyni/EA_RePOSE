@@ -21,6 +21,7 @@ Dqn results can be downloaded from [this part](https://drive.google.com/drive/fo
     ```
     $ ROOT=/path/to/EA_RePOSE
     $ mkdir  $ROOT/bestresult
+    $ mkdir  $ROOT/bestresult_dqn
     ```
     
 Then copy the training weights in it
